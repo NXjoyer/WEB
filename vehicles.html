@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTODRIVE - Vehicles</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="autodrive.jpg" alt="AUTODRIVE Logo" class="logo-img">
+                <span>AUTODRIVE</span>
+            </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="vehicles.html" class="nav-link active">Vehicles</a></li>
+                <li><a href="chat.html" class="nav-link">Live Chat</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="sell.html" class="nav-link">Sell a Vehicle</a></li>
+                <li><a href="register.html" class="nav-link register-btn">Register</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h1>Our Vehicles</h1>
+            <p>Explore Our Premium Vehicle Collection</p>
+            <a href="#vehicle-list" class="cta-button">View Listings</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="vehicle-list" class="featured-vehicles">
+            <h2>Vehicle Listings</h2>
+            <div class="search-bar">
+                <input type="text" id="vehicle-search" placeholder="Search by model, year, or specs...">
+            </div>
+            <table class="vehicle-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Model</th>
+                        <th>Year</th>
+                        <th>Price</th>
+                        <th>Specs</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="vehicle-table-body">
+                    <tr>
+                        <td data-label="Image"><img src="luxurysedan.jpg" alt="BMW 7 Series" class="vehicle-table-img"></td>
+                        <td data-label="Model">BMW 7 Series (G70) / BMW i7</td>
+                        <td data-label="Year">2023</td>
+                        <td data-label="Price">$96,400</td>
+                        <td data-label="Specs">3.0L Turbo Inline-6 | 375hp | Luxury Leather</td>
+                        <td data-label="Action"><a href="chat.html" class="chat-btn">Chat with Seller</a></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Image"><img src="Premiumsuv.jpg" alt="Lincoln Aviator" class="vehicle-table-img"></td>
+                        <td data-label="Model">Lincoln Aviator</td>
+                        <td data-label="Year">2020</td>
+                        <td data-label="Price">$53,340</td>
+                        <td data-label="Specs">3.0L Twin-Turbo V6 | 400hp | Premium Leather Interior</td>
+                        <td data-label="Action"><a href="chat.html" class="chat-btn">Chat with Seller</a></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Image"><img src="sportscar.jpg" alt="McLaren P1" class="vehicle-table-img"></td>
+                        <td data-label="Model">McLaren P1</td>
+                        <td data-label="Year">2015</td>
+                        <td data-label="Price">$1,350,000</td>
+                        <td data-label="Specs">3.8L Twin-Turbo V8 Hybrid | 903hp | Carbon Fiber Monocoque | Limited to 375 units</td>
+                        <td data-label="Action"><a href="chat.html" class="chat-btn">Chat with Seller</a></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Image"><img src="coupe.jpg" alt="Mercedes-AMG GT63" class="vehicle-table-img"></td>
+                        <td data-label="Model">Mercedes-AMG GT63</td>
+                        <td data-label="Year">2024</td>
+                        <td data-label="Price">$190,000</td>
+                        <td data-label="Specs">4.0L V8 Biturbo | 630hp | 3.1s 0-60mph | 3,400lb Towing</td>
+                        <td data-label="Action"><a href="chat.html" class="chat-btn">Chat with Seller</a></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Image"><img src="pickup.jpg" alt="Toyota Tundra" class="vehicle-table-img"></td>
+                        <td data-label="Model">Toyota Tundra</td>
+                        <td data-label="Year">2025</td>
+                        <td data-label="Price">$50,000</td>
+                        <td data-label="Specs">3.5L V6 Hybrid | 437hp | 12,000lb Towing</td>
+                        <td data-label="Action"><a href="chat.html" class="chat-btn">Chat with Seller</a></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Image"><img src="electriccar.jpg" alt="Tesla Model 3" class="vehicle-table-img"></td>
+                        <td data-label="Model">Tesla Model 3</td>
+                        <td data-label="Year">2017</td>
+                        <td data-label="Price">$38,990</td>
+                        <td data-label="Specs">Electric | Up to 333 miles range | Autopilot</td>
+                        <td data-label="Action"><a href="chat.html" class="chat-btn">Chat with Seller</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>AUTODRIVE</h4>
+                <p>Premium Vehicle Marketplace</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Credits</h4>
+                <p>Created by Sean Toledo, Joshua Agulto, Justine Manalo, Quirsten Tolentino, and Rian Rivera</p>
+                <p>BSCpE 2E</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 AUTODRIVE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Store the default vehicles for filtering
+        const defaultVehicles = [
+            {
+                image: 'luxurysedan.jpg',
+                model: 'BMW 7 Series (G70) / BMW i7',
+                year: '2023',
+                price: '$96,400',
+                specs: '3.0L Turbo Inline-6 | 375hp | Luxury Leather'
+            },
+            {
+                image: 'Premiumsuv.jpg',
+                model: 'Lincoln Aviator',
+                year: '2020',
+                price: '$53,340',
+                specs: '3.0L Twin-Turbo V6 | 400hp | Premium Leather Interior'
+            },
+            {
+                image: 'sportscar.jpg',
+                model: 'McLaren P1',
+                year: '2015',
+                price: '$1,350,000',
+                specs: '3.8L Twin-Turbo V8 Hybrid | 903hp | Carbon Fiber Monocoque | Limited to 375 units'
+            },
+            {
+                image: 'coupe.jpg',
+                model: 'Mercedes-AMG GT63',
+                year: '2024',
+                price: '$190,000',
+                specs: '4.0L V8 Biturbo | 630hp | 3.1s 0-60mph | 3,400lb Towing'
+            },
+            {
+                image: 'pickup.jpg',
+                model: 'Toyota Tundra',
+                year: '2025',
+                price: '$50,000',
+                specs: '3.5L V6 Hybrid | 437hp | 12,000lb Towing'
+            },
+            {
+                image: 'electriccar.jpg',
+                model: 'Tesla Model 3',
+                year: '2017',
+                price: '$38,990',
+                specs: 'Electric | Up to 333 miles range | Autopilot'
+            }
+        ];
+
+        // Load vehicles and set up search
+        window.onload = function() {
+            const vehicleTableBody = document.getElementById('vehicle-table-body');
+            const userVehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
+            const allVehicles = [...defaultVehicles, ...userVehicles];
+
+            // Function to render vehicles
+            function renderVehicles(vehicles) {
+                vehicleTableBody.innerHTML = '';
+                vehicles.forEach(vehicle => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td data-label="Image">${vehicle.image ? `<img src="${vehicle.image}" alt="${vehicle.model}" class="vehicle-table-img">` : 'No Image'}</td>
+                        <td data-label="Model">${vehicle.model}</td>
+                        <td data-label="Year">${vehicle.year}</td>
+                        <td data-label="Price">${vehicle.price}</td>
+                        <td data-label="Specs">${vehicle.specs}</td>
+                        <td data-label="Action"><a href="chat.html" class="chat-btn">Chat with Seller</a></td>
+                    `;
+                    vehicleTableBody.appendChild(row);
+                });
+            }
+
+            // Initial render
+            renderVehicles(allVehicles);
+
+            // Search functionality
+            document.getElementById('vehicle-search').addEventListener('input', function(e) {
+                const searchQuery = e.target.value.toLowerCase();
+                const filteredVehicles = allVehicles.filter(vehicle => {
+                    return (
+                        vehicle.model.toLowerCase().includes(searchQuery) ||
+                        vehicle.year.toString().toLowerCase().includes(searchQuery) ||
+                        vehicle.specs.toLowerCase().includes(searchQuery)
+                    );
+                });
+                renderVehicles(filteredVehicles);
+            });
+        };
+    </script>
+</body>
+</html>

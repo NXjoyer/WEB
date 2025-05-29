@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTODRIVE - Sign Up</title>
+    <link rel="stylesheet" href="styles1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="autodrive.jpg" alt="AUTODRIVE Logo" class="logo-img">
+                <span>AUTODRIVE</span>
+            </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="vehicles.html" class="nav-link">Vehicles</a></li>
+                <li><a href="chat.html" class="nav-link">Live Chat</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="sell.html" class="nav-link">Sell a Vehicle</a></li>
+                <li><a href="register.html" class="nav-link">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="form-box">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" name="signup-email" required>
+                </div>
+                <div class="form-group password-group">
+                    <label for="signup-password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="signup-password" name="signup-password" required>
+                        <span class="toggle-password" data-target="signup-password">👁️</span>
+                    </div>
+                </div>
+                <div class="message" id="signupMessage"></div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="link-text">Don't have an account? <a href="register.html">Register</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('signup-email').value.trim();
+            const password = document.getElementById('signup-password').value;
+            const messageDiv = document.getElementById('signupMessage');
+
+            // Reset message
+            messageDiv.textContent = '';
+            messageDiv.className = 'message';
+
+            // Validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                messageDiv.textContent = 'Please enter a valid email address.';
+                messageDiv.classList.add('error');
+                return;
+            }
+
+            if (password.length < 6) {
+                messageDiv.textContent = 'Password must be at least 6 characters long.';
+                messageDiv.classList.add('error');
+                return;
+            }
+
+            // Simulate successful sign-up
+            messageDiv.textContent = 'Sign Up successful!';
+            messageDiv.classList.add('success');
+
+            // Log data (simulating submission to a backend)
+            console.log({
+                email,
+                password
+            });
+
+            // Reset form
+            this.reset();
+        });
+
+        // Show/Hide Password Functionality
+        document.querySelectorAll('.toggle-password').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const passwordInput = document.getElementById(targetId);
+                const isPasswordVisible = passwordInput.type === 'text';
+                
+                passwordInput.type = isPasswordVisible ? 'password' : 'text';
+                this.textContent = isPasswordVisible ? '👁️' : '🙈';
+            });
+        });
+    </script>
+</body>
+</html>

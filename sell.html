@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTODRIVE - Sell a Vehicle</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="autodrive.jpg" alt="AUTODRIVE Logo" class="logo-img">
+                <span>AUTODRIVE</span>
+            </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="vehicles.html" class="nav-link">Vehicles</a></li>
+                <li><a href="chat.html" class="nav-link">Live Chat</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="sell.html" class="nav-link active">Sell a Vehicle</a></li>
+                <li><a href="register.html" class="nav-link register-btn">Register</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h1>Sell a Vehicle</h1>
+            <p>List Your Vehicle on AUTODRIVE</p>
+            <a href="#sell-section" class="cta-button">Start Listing</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="sell-section" class="contact-section">
+            <h2>Post Your Vehicle for Sale</h2>
+            <div class="contact-container">
+                <div class="contact-form-wrapper">
+                    <h3>Vehicle Details</h3>
+                    <form id="sell-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="model">Vehicle Model</label>
+                            <input type="text" id="model" name="model" required placeholder="e.g., Toyota Camry">
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year</label>
+                            <input type="number" id="year" name="year" required placeholder="e.g., 2023" min="1900" max="2025">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price (USD)</label>
+                            <input type="number" id="price" name="price" required placeholder="e.g., 30000" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="specs">Specifications</label>
+                            <input type="text" id="specs" name="specs" required placeholder="e.g., 2.0L Turbo | 300hp">
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicle-image">Vehicle Image</label>
+                            <input type="file" id="vehicle-image" name="vehicle-image" accept="image/*">
+                            <div id="image-preview" class="image-preview"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="seller-name">Your Name</label>
+                            <input type="text" id="seller-name" name="seller-name" required placeholder="e.g., Sean Toledo">
+                        </div>
+                        <div class="form-group">
+                            <label for="seller-email">Your Email</label>
+                            <input type="email" id="seller-email" name="seller-email" required placeholder="e.g., seantoledo@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="seller-phone">Your Phone Number</label>
+                            <input type="tel" id="seller-phone" name="seller-phone" required placeholder="e.g., 0961-0618-336">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Vehicle Description</label>
+                            <textarea id="description" name="description" rows="5" placeholder="Tell us more about your vehicle (e.g., condition, features, mileage)..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Post Vehicle</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>AUTODRIVE</h4>
+                <p>Premium Vehicle Marketplace</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Credits</h4>
+                <p>Created by Sean Toledo, Joshua Agulto, Justine Manalo, Quirsten Tolentino, and Rian Rivera</p>
+                <p>BSCpE 2E</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 AUTODRIVE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Image preview functionality
+        const imageInput = document.getElementById('vehicle-image');
+        const imagePreview = document.getElementById('image-preview');
+
+        imageInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.innerHTML = `<img src="${e.target.result}" alt="Vehicle Preview">`;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.innerHTML = '';
+            }
+        });
+
+        // Form submission
+        document.getElementById('sell-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const model = document.getElementById('model').value;
+            const year = document.getElementById('year').value;
+            const price = document.getElementById('price').value;
+            const specs = document.getElementById('specs').value;
+            const imageFile = document.getElementById('vehicle-image').files[0];
+            const sellerName = document.getElementById('seller-name').value;
+            const sellerEmail = document.getElementById('seller-email').value;
+            const sellerPhone = document.getElementById('seller-phone').value;
+            const description = document.getElementById('description').value;
+
+            // Convert image to Base64 if present
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const vehicle = {
+                    model: model,
+                    year: year,
+                    price: `$${parseInt(price).toLocaleString()}`,
+                    specs: specs,
+                    image: e.target.result || '',
+                    seller: {
+                        name: sellerName,
+                        email: sellerEmail,
+                        phone: sellerPhone
+                    },
+                    description: description
+                };
+
+                // Save to localStorage
+                let vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
+                vehicles.push(vehicle);
+                localStorage.setItem('vehicles', JSON.stringify(vehicles));
+
+                alert('Vehicle posted successfully! Check the Vehicles page to see your listing.');
+                window.location.href = 'vehicles.html';
+            };
+
+            if (imageFile) {
+                reader.readAsDataURL(imageFile);
+            } else {
+                reader.onload({ target: { result: '' } });
+            }
+        });
+    </script>
+</body>
+</html>

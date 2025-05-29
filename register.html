@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTODRIVE - Register</title>
+    <link rel="stylesheet" href="styles1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="autodrive.jpg" alt="AUTODRIVE Logo" class="logo-img">
+                <span>AUTODRIVE</span>
+            </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="vehicles.html" class="nav-link">Vehicles</a></li>
+                <li><a href="chat.html" class="nav-link">Live Chat</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="sell.html" class="nav-link">Sell a Vehicle</a></li>
+                <li><a href="signup.html" class="nav-link">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="form-box">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group password-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" name="password" required>
+                        <span class="toggle-password" data-target="password">👁️</span>
+                    </div>
+                </div>
+                <div class="form-group password-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                        <span class="toggle-password" data-target="confirm-password">👁️</span>
+                    </div>
+                </div>
+                <div class="form-group dob-group">
+                    <label>Date of Birth</label>
+                    <div class="dob-selectors">
+                        <select id="dob-day" name="dob-day" required>
+                            <option value="" disabled selected>Day</option>
+                        </select>
+                        <select id="dob-month" name="dob-month" required>
+                            <option value="" disabled selected>Month</option>
+                            <option value="01">January</option>
+                            <option value="02">February</option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                        <select id="dob-year" name="dob-year" required>
+                            <option value="" disabled selected>Year</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group gender-group">
+                    <label>Gender</label>
+                    <div class="radio-options">
+                        <label><input type="radio" name="gender" value="male" required> Male</label>
+                        <label><input type="radio" name="gender" value="female"> Female</label>
+                        <label><input type="radio" name="gender" value="other"> Other</label>
+                    </div>
+                </div>
+                <div class="message" id="registerMessage"></div>
+                <button type="submit">Register Now</button>
+            </form>
+            <p class="link-text">Already have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Populate day and year dropdowns
+        document.addEventListener('DOMContentLoaded', function() {
+            const daySelect = document.getElementById('dob-day');
+            const yearSelect = document.getElementById('dob-year');
+
+            // Populate days (1-31)
+            for (let i = 1; i <= 31; i++) {
+                const option = document.createElement('option');
+                option.value = i.toString().padStart(2, '0');
+                option.textContent = i;
+                daySelect.appendChild(option);
+            }
+
+            // Populate years (1900 to current year, 2025)
+            const currentYear = 2025;
+            for (let i = currentYear; i >= 1900; i--) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                yearSelect.appendChild(option);
+            }
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const fullname = document.getElementById('fullname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const dobDay = document.getElementById('dob-day').value;
+            const dobMonth = document.getElementById('dob-month').value;
+            const dobYear = document.getElementById('dob-year').value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+            const messageDiv = document.getElementById('registerMessage');
+
+            // Reset message
+            messageDiv.textContent = '';
+            messageDiv.className = 'message';
+
+            // Validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                messageDiv.textContent = 'Please enter a valid email address.';
+                messageDiv.classList.add('error');
+                return;
+            }
+
+            if (username.length < 3) {
+                messageDiv.textContent = 'Username must be at least 3 characters long.';
+                messageDiv.classList.add('error');
+                return;
+            }
+
+            if (password.length < 6) {
+                messageDiv.textContent = 'Password must be at least 6 characters long.';
+                messageDiv.classList.add('error');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                messageDiv.textContent = 'Passwords do not match.';
+                messageDiv.classList.add('error');
+                return;
+            }
+
+            if (!dobDay || !dobMonth || !dobYear) {
+                messageDiv.textContent = 'Please select a valid date of birth.';
+                messageDiv.classList.add('error');
+                return;
+            }
+
+            // Validate the date
+            const dob = new Date(`${dobYear}-${dobMonth}-${dobDay}`);
+            const today = new Date();
+            if (isNaN(dob.getTime()) || dob > today) {
+                messageDiv.textContent = 'Please select a valid date of birth.';
+                messageDiv.classList.add('error');
+                return;
+            }
+
+            if (!gender) {
+                messageDiv.textContent = 'Please select a gender.';
+                messageDiv.classList.add('error');
+                return;
+            }
+
+            // Combine date of birth into dd/mm/yyyy format
+            const dobFormatted = `${dobDay}/${dobMonth}/${dobYear}`;
+
+            // Store user data in localStorage (for demo purposes)
+            const user = {
+                fullname,
+                email,
+                username,
+                password,
+                dob: dobFormatted,
+                gender
+            };
+            localStorage.setItem('user', JSON.stringify(user));
+
+            // Redirect to confirmation page
+            window.location.href = 'confirmation.html';
+        });
+
+        // Show/Hide Password Functionality
+        document.querySelectorAll('.toggle-password').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const passwordInput = document.getElementById(targetId);
+                const isPasswordVisible = passwordInput.type === 'text';
+                
+                passwordInput.type = isPasswordVisible ? 'password' : 'text';
+                this.textContent = isPasswordVisible ? '👁️' : '🙈';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTODRIVE - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="autodrive.jpg" alt="AUTODRIVE Logo" class="logo-img">
+                <span>AUTODRIVE</span>
+            </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="vehicles.html" class="nav-link">Vehicles</a></li>
+                <li><a href="chat.html" class="nav-link">Live Chat</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="sell.html" class="nav-link">Sell a Vehicle</a></li>
+                <li><a href="register.html" class="nav-link register-btn">Register</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h1>Contact Us</h1>
+            <p>Reach Out for Any Inquiries or Assistance</p>
+            <a href="#contact-details" class="cta-button">Get in Touch</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="contact-details" class="contact-section">
+            <h2>Connect with Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Our Contact Details</h3>
+                    <p><strong>Email:</strong> support@autodrive.com</p>
+                    <p><strong>Phone:</strong> 09610618336 (PHP)</p>
+                    <p><strong>Address:</strong> Seoul, South Korea</p>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p>Saturday: 10:00 AM - 4:00 PM</p>
+                    <p>Sunday: Closed</p>
+                    <h3>Find Us</h3>
+                    <div class="map-placeholder">
+                        <div style="position: relative;">
+                            <div style="position: relative; padding-bottom: 75%; height: 0; overflow: hidden;">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d202404.91416664838!2d126.8093283694077!3d37.56503371512201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2012d5c39cf%3A0x7e11eca1405bf29b!2sSeoul%2C%20South%20Korea!5e0!3m2!1sen!2sph!4v1743596398643!5m2!1sen!2sph" style="border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                            <a href="https://mapembeds.com" rel="noopener" target="_blank" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;">mapembeds.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <h3>Send Us a Message</h3>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Joshua Agulto">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="joshua@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Preference</label>
+                            <div class="radio-group">
+                                <input type="radio" id="chat" name="contact" value="chat" checked>
+                                <label for="chat">Live Chat</label>
+                                <input type="radio" id="meet" name="contact" value="meet">
+                                <label for="meet">In-Person Meeting</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Vehicle Interests</label>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="sedan" name="type" value="sedan">
+                                <label for="sedan">Sedan</label>
+                                <input type="checkbox" id="suv" name="type" value="suv">
+                                <label for="suv">SUV</label>
+                                <input type="checkbox" id="electric" name="type" value="electric">
+                                <label for="electric">Electric</label>
+                                <input type="checkbox" id="coupe" name="type" value="coupe">
+                                <label for="coupe">Coupe</label>
+                                <input type="checkbox" id="pickup" name="type" value="pickup">
+                                <label for="pickup">Pickup</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your message here..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>AUTODRIVE</h4>
+                <p>Premium Vehicle Marketplace</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Credits</h4>
+                <p>Created by Sean Toledo, Joshua Agulto, Justine Manalo, Quirsten Tolentino, and Rian Rivera</p>
+                <p>BSCpE 2E</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 AUTODRIVE. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
